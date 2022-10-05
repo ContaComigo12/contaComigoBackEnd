@@ -8,5 +8,5 @@ import java.util.List;
 public interface HistoriaRepository extends JpaRepository<HistoriaModel, Long> {
     public List<HistoriaModel> findAllByCategoria(String categoria);
 
-    public List<HistoriaModel> findAllBySub_categoria(String subCategoria);
+    public List<HistoriaModel> findAllBySubCategoria(String subCategoria);
 }
