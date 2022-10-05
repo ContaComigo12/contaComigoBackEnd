@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Controller
-@RequestMapping({"/historia/historia"})
+@RequestMapping({"/historia"})
 @CrossOrigin({"*"})
 public class HistoriaController {
 
