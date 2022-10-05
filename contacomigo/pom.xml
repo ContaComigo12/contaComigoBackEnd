@@ -14,8 +14,7 @@
     <name>contaminant</name>
     <description>contaminant</description>
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>17.0.2</java.version>
     </properties>
     <dependencies>
         <dependency>
