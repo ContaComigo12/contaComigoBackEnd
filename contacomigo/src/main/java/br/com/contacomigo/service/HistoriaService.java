@@ -53,12 +53,12 @@ public class HistoriaService {
     }
 
     public List<HistoriaModel> getHistoriasByCategoria(String categoria){
-        return this.repository.findByCategoria(categoria);
+        return this.repository.findBycategoria(categoria);
     }
 
     public HistoriaModel getHistoriaBySubCategoriaRandom(String subCategoria){
         Random random = new Random();
-        List<HistoriaModel> historiaModelList = this.repository.findBySubCategoria(subCategoria);
+        List<HistoriaModel> historiaModelList = this.repository.findBysub_categoria(subCategoria);
         HistoriaModel historiaModel = historiaModelList.get(random.nextInt(historiaModelList.size()));
         return historiaModel;
     }
