@@ -1,5 +1,7 @@
 package br.com.contacomigo.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 
@@ -7,9 +9,8 @@ import java.util.ArrayList;
 public class HistoriaModel {
 
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.AUTO
-    )
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
 
     private String titulo;
