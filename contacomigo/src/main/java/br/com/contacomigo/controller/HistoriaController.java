@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Controller
-@RequestMapping({"/"})
+@RequestMapping({"/historia/historia"})
 @CrossOrigin({"*"})
 public class HistoriaController {
 
@@ -30,12 +30,12 @@ public class HistoriaController {
         return ResponseEntity.ok().body(service.getAllHistorias());
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<HistoriaModel> getHistoriaById(@PathVariable long id){
         return ResponseEntity.ok().body(service.getHistoriaById(id));
     }
 
-    @GetMapping("/{categoria}")
+    @GetMapping("/categoria/{categoria}")
     public ResponseEntity<List<HistoriaModel>> getHistoriaByCategoria(@PathVariable String categoria){
         return ResponseEntity.ok().body(service.getHistoriasByCategoria(categoria));
     }
