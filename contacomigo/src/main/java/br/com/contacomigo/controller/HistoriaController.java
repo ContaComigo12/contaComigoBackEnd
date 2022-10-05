@@ -35,7 +35,7 @@ public class HistoriaController {
         return ResponseEntity.ok().body(service.getHistoriaById(id));
     }
 
-    @GetMapping("/categoria/{categoria}")
+    @GetMapping("/{categoria}")
     public ResponseEntity<List<HistoriaModel>> getHistoriaByCategoria(@PathVariable String categoria){
         return ResponseEntity.ok().body(service.getHistoriasByCategoria(categoria));
     }
