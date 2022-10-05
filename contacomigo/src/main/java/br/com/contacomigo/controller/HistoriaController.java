@@ -30,7 +30,7 @@ public class HistoriaController {
         return ResponseEntity.ok().body(service.getAllHistorias());
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<HistoriaModel> getHistoriaById(@PathVariable long id){
         return ResponseEntity.ok().body(service.getHistoriaById(id));
     }
