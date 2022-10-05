@@ -11,8 +11,8 @@
     <groupId>br.com.contacomigo</groupId>
     <artifactId>contacomigo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>contaminant</name>
-    <description>contaminant</description>
+    <name>contacomigorecode</name>
+    <description>contacomigorecode</description>
     <properties>
         <java.version>17</java.version>
     </properties>
