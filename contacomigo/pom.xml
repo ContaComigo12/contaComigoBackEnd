@@ -64,6 +64,12 @@
             <version>20220924</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.heroku.sdk</groupId>
+            <artifactId>heroku-deploy</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>
