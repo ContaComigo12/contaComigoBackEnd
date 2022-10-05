@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface HistoriaRepository extends JpaRepository<HistoriaModel, Long> {
-    public List<HistoriaModel> findBycategoria(String categoria);
+    public List<HistoriaModel> findAllByCategoria(String categoria);
 
-    public List<HistoriaModel> findBysub_categoria(String subCategoria);
+    public List<HistoriaModel> findAllBySub_categoria(String subCategoria);
 }
