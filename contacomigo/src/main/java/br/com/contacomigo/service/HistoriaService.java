@@ -60,7 +60,7 @@ public class HistoriaService {
     public HistoriaModel getHistoriaBySubCategoriaRandom(String subCategoria){
         Random random = new Random();
         List<HistoriaModel> historiaModelList = this.repository.findAllBySubCategoria(subCategoria);
-        HistoriaModel historiaModel = historiaModelList.get(random.nextInt(historiaModelList.size() - 1));
+        HistoriaModel historiaModel = historiaModelList.get(random.nextInt(historiaModelList.size()));
         return historiaModel;
     }
 
