@@ -62,5 +62,4 @@ public class HistoriaModel {
         this.imgsHistoria.add(i, (String.valueOf(imgsHistoria)));
     }
 
-
 }

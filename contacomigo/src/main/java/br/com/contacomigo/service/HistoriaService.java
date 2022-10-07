@@ -1,5 +1,6 @@
 package br.com.contacomigo.service;
 
+import br.com.contacomigo.exceptions.SalvamentoImagemException;
 import br.com.contacomigo.model.HistoriaModel;
 import br.com.contacomigo.repository.HistoriaRepository;
 import okhttp3.*;
@@ -59,11 +60,11 @@ public class HistoriaService {
     public HistoriaModel getHistoriaBySubCategoriaRandom(String subCategoria){
         Random random = new Random();
         List<HistoriaModel> historiaModelList = this.repository.findAllBySubCategoria(subCategoria);
-        HistoriaModel historiaModel = historiaModelList.get(random.nextInt(historiaModelList.size()));
+        HistoriaModel historiaModel = historiaModelList.get(random.nextInt(historiaModelList.size() - 1));
         return historiaModel;
     }
 
-    public HistoriaModel salvarHistoria(String titulo, String categoria, String subCategoria, MultipartFile[] imagens){
+    public HistoriaModel salvarHistoria(String titulo, String categoria, String subCategoria, MultipartFile[] imagens) throws Exception {
         HistoriaModel historiaModel = new HistoriaModel();
         historiaModel.setTitulo(titulo);
         historiaModel.setCategoria(categoria);
@@ -95,7 +96,7 @@ public class HistoriaService {
 
         }catch (Exception e){
             System.out.println(e);
-            return null;
+            throw new SalvamentoImagemException("Não foi possível Salvar", 503);
         }
     }
 

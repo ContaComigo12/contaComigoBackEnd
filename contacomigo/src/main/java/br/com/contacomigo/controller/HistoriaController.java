@@ -46,7 +46,7 @@ public class HistoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<HistoriaModel> salvarHistoria(@RequestParam String titulo, @RequestParam String categoria, @RequestParam String subCategoria, @RequestParam MultipartFile[] imagens){
+    public ResponseEntity<HistoriaModel> salvarHistoria(@RequestParam String titulo, @RequestParam String categoria, @RequestParam String subCategoria, @RequestParam MultipartFile[] imagens) throws Exception {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.salvarHistoria(titulo, categoria, subCategoria, imagens));
     }
 
