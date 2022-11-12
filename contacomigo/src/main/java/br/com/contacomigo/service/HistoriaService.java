@@ -82,7 +82,7 @@ public class HistoriaService {
                 Request request = new Request.Builder()
                         .url("https://api.imgur.com/3/upload")
                         .method("POST", body)
-                        .addHeader("Authorization", "Bearer 5eeae49394cd929e299785c8805bd168fc675280")
+                        .addHeader("Authorization", "Bearer df254b79d2e0e37f6de79b4c7e268e5b4e34e808")
                         .build();
                 Response response = client.newCall(request).execute();
                 System.out.println(response);
