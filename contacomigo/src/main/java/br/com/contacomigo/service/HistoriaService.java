@@ -118,7 +118,6 @@ public class HistoriaService {
         historiaModel.setSubCategoria(subCategoria);
         try{
             for (int i = 0; i < imagens.length; i++ ){
-                System.out.println(imagens[i]);
                 OkHttpClient client = new OkHttpClient().newBuilder()
                         .build();
                 MediaType mediaType = MediaType.parse("text/plain");
