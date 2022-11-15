@@ -54,4 +54,9 @@ public class HistoriaController {
     public ResponseEntity<HistoriaModel> deletarHistoria(@PathVariable long id){
         return ResponseEntity.status(HttpStatus.OK).body(service.deletarHistoria(id));
     }
+
+    @PatchMapping
+    public ResponseEntity<HistoriaModel> updateHistoria(@RequestParam long id, @RequestParam String titulo, @RequestParam String categoria, @RequestParam String subCategoria, @RequestParam MultipartFile[] imagens) throws Exception {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.updateHistoria(id, titulo, categoria, subCategoria, imagens));
+    }
 }

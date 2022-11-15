@@ -109,4 +109,42 @@ public class HistoriaService {
         }
         return historiaModel;
     }
+
+    public HistoriaModel updateHistoria(long id, String titulo, String categoria, String subCategoria, MultipartFile[] imagens) throws Exception {
+        HistoriaModel historiaModel = new HistoriaModel();
+        historiaModel.setId(id);
+        historiaModel.setTitulo(titulo);
+        historiaModel.setCategoria(categoria);
+        historiaModel.setSubCategoria(subCategoria);
+        try{
+            for (int i = 0; i < imagens.length; i++ ){
+                System.out.println(imagens[i]);
+                OkHttpClient client = new OkHttpClient().newBuilder()
+                        .build();
+                MediaType mediaType = MediaType.parse("text/plain");
+                RequestBody body = new MultipartBody.Builder().setType(MultipartBody.FORM)
+                        .addFormDataPart("image",imagens[i].getOriginalFilename(),
+                                RequestBody.create(MediaType.parse("application/octet-stream"),
+                                        new File(multipartToFile(imagens[i], "temporario").toURI())))
+                        .build();
+                Request request = new Request.Builder()
+                        .url("https://api.imgur.com/3/upload")
+                        .method("POST", body)
+                        .addHeader("Authorization", "Bearer df254b79d2e0e37f6de79b4c7e268e5b4e34e808")
+                        .build();
+                Response response = client.newCall(request).execute();
+                System.out.println(response);
+                JSONObject imgur = new JSONObject(response.body().string());
+                JSONObject data = imgur.getJSONObject("data");
+                String imgLink = (String) data.getString("link");
+
+                historiaModel.setImgsHistoria(imgLink, i);
+            }
+            return this.repository.save(historiaModel);
+
+        }catch (Exception e){
+            System.out.println(e);
+            throw new SalvamentoImagemException("Não foi possível Salvar", 503);
+        }
+    }
 }
